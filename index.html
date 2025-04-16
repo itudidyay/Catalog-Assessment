@@ -1,31 +1,51 @@
 <!DOCTYPE html>
+<meta charset="UTF-8">
 <html>
   <head>
     <title>LA TV Shows | Home</title>
     <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
     <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="wikiDataTrimmed.js"></script>
     <script type="text/javascript" src="scripts.js"></script>
   </head>
 
   <body>
     <header class="main-header">
-      <h1 class="title">LA TV Shows</h1>
+      <h1 class="title">Most Viewed Wikipedia Articles in One Week</h1>
     </header>
+    <div class="intro">
+      <p>These are the Wikipedia articles that gained the most views within one week, according to <a href="https://en.wikipedia.org/wiki/Wikipedia:Top_25_Report/Records">Wikipedia's Top 25 Report</a>.
+        At the bar at the bottom, you can sort by views, alphabet, or randomly. You can also select one or more categories to include or exclude!
+      </p>
+    </div>
     <div id="card-container"></div>
     <div class="card" style="display: none">
       <div class="card-content">
-        <h2>TV Show Title</h2>
-        <img src="" alt="TV Show Poster" />
-        <ul>
-          <li>Bullet Point 1</li>
-          <li>Bullet Point 2</li>
-          <li>Bullet Point 3</li>
-        </ul>
+        <h2>Wiki Article Title</h2>
+        <h3>Description</h3>
+        <div class="text-image-container">
+          <img src="" alt="" />
+          <span class="extract"></span>
+        </div>
+        <p class="linkToArt">
+          <a href="" >Read more...</a>
+        </p>
+        <p class="viewsParagraph">views: <b class="viewsNumber"></b></p>
+        <p>categories: </p>
+        <ul class="categories"></ul>
       </div>
     </div>
     <div class="footer">
-      <button onclick="quoteAlert();">Get A Quote!</button>
-      <button onclick="removeLastCard();">Remove A Card!</button>
+      <button onclick="viewsSort();">Sort by views</button>
+      <button onclick="alphaSort();">Sort by alphabet</button>
+      <button onclick="randomSort();">Sort randomly</button>
+      <br><br>
+      <label>Include:</label>
+      <select name="includedCategories" id="includedCategories" multiple></select>
+      <label>Exclude:</label>
+      <select name="excludedCategories" id="excludedCategories" multiple></select>
+      <br><br>
+      <button onclick="getCategories();">Filter categories</button>
     </div>
   </body>
 </html>
